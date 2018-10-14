@@ -1,0 +1,147 @@
+\documentclass[a4paper, 12pt,oneside]{article}
+%On peut changer "oneside" en "twoside" si on sait que le résultat sera recto-verso.
+%Cela influence les marges (pas ici car elles sont identiques à droite et à gauche)
+
+% pour l'inclusion de figures en eps,pdf,jpg,....
+\usepackage{graphicx}
+
+%Marges. Désactiver pour utiliser les valeurs LaTeX par défaut
+%\usepackage[top=2.5cm, bottom=1.5cm, left=2cm, right=2cm, showframe]{geometry}
+\usepackage[top=2.5cm, bottom=1.5cm, left=2cm, right=2cm]{geometry}
+
+% quelques symboles mathematiques en plus
+\usepackage{amsmath}
+
+% le tout en langue francaise
+%\usepackage[francais]{babel}
+
+% on peut ecrire directement les charactères avec l'accent
+\usepackage[T1]{fontenc}
+
+% a utiliser sur Linux/Windows
+%\usepackage[latin1]{inputenc}
+
+% a utiliser avec UTF8
+\usepackage[utf8]{inputenc}
+%Très utiles pour les groupes mixtes mac/PC. Un fichier texte enregistré sous codage UTF-8 est lisible dans les deux environnement.
+%Plus de problème de caractères accentués et spéciaux qui ne s'affichent pas
+
+% a utiliser sur le Mac
+%\usepackage[applemac]{inputenc}
+
+% pour l'inclusion de liens dans le document (pdflatex)
+\usepackage[colorlinks,bookmarks=false,linkcolor=black,urlcolor=blue, citecolor=black]{hyperref}
+
+%Pour l'utilisation plus simple des unités et fractions
+\usepackage{units}
+
+%Pour utiliser du time new roman... Comenter pour utiliser du ComputerModern
+%\usepackage{mathptmx}
+
+%Pour du code non interprété
+\usepackage{verbatim}
+\usepackage{verbdef}% http://ctan.org/pkg/verbdef
+
+%Pour changer la taille des titres de section et subsection. Ajoutez manuellement les autres styles si besoin.
+\makeatletter
+\renewcommand{\section}{\@startsection {section}{1}{\z@}%
+             {-3.5ex \@plus -1ex \@minus -.2ex}%
+             {2.3ex \@plus.2ex}%
+             {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\makeatletter
+\renewcommand{\subsection}{\@startsection {subsection}{1}{\z@}%
+             {-3.5ex \@plus -1ex \@minus -.2ex}%
+             {2.3ex \@plus.2ex}%
+             {\normalfont\normalsize\bfseries}}
+\makeatother
+
+%Début du document
+\begin{document}
+\title{\normalsize{Lab Work Report - Group N$^\circ$\\ XX - Experiment}}
+\date{\normalsize{\today}}
+\author{\normalsize{Name} 1\and \normalsize{Name 2}}
+%Crée la page de titre
+%\maketitle
+%Ajoute la table des matières
+%\tableofcontents
+%Début du rapport à la page suivante
+%\newpage
+
+%De manière à ce que template latex ressemble au mieux au template word, on empêche latex de créer la page de titre et la créons à la main
+%En taille de police 12, la commande \large donne une taille de police 14
+%On utilise la commande \sffamily pour créer des caractères sans-serif
+
+\begin{center}
+\large\textbf{\sffamily Experiment N$^\circ$: Experiment Title Please Center}\\%
+\large\sffamily Group N$^\circ$: First Author, Second Author\\%
+\large\sffamily \today\qquad Assistant Name\\%
+\end{center}
+
+%			Introduction
+\section{Introduction}
+This template explains and demonstrates how to format your report. %
+The best is to read these instructions and follow the outline of this text. %
+Please use font size 12 and single line spacing. \\%
+Please make the page settings of your word processor to A4 format ($21 \times 29.7~\unit{cm}$ or $8 \times 11~\unit{in}$); with the margins: bottom 1.5~cm (0.59~in) and top 2.5~ cm (0.98~in), right/left margins must be 2~cm (0.78~in). %
+You are strongly encouraged to write the report in English, if the assigned assistant does not speak French. 
+
+%
+\section{Organization of the text}
+\paragraph{Section Headings}%
+The section headings are in boldface capital and lowercase letters. %
+Second level headings are typed as part of the succeeding paragraph (like the subsection heading of this paragraph). %
+With \LaTeX\ several sections heading are possible:%
+\begin{verbatim}
+\section{}, \subsection{}, \subsubsection{}, \paragraph{} and \subparagraph{}.
+\end{verbatim}
+%
+\paragraph{Tables}%
+Tables (refer with: Table 1, Table 2, \ldots) should be presented as part of the text, but in such a way as to avoid confusion with the text. %
+The caption should be self-contained and placed \textit{below or beside} the table. %
+Units in tables should be given in square brackets [meV]. \href{https://www.sharelatex.com/learn/Tables}{More informations}
+%
+\paragraph{Figures}%
+Figures (refer with: Fig. 1, Fig. 2, \ldots) also should be presented as part of the text, leaving enough space so that the caption will not be confused with the text. %
+The caption should be self-contained and placed \textit{below or beside} the figure.\\ %
+Color figures are welcome, but sometimes these figures will be reduced to black and white in the printed version. %
+The author should adapt the figures to be understandable even in the black and white print. \href{https://www.sharelatex.com/learn/Wrapping_text_around_figures}{More informations}%
+%
+\paragraph{Equations}%
+Equations (refer with: Eq. 1, Eq. 2, \ldots) should be indented 5 mm (0.2''). %
+There should be one line of space above the equation and one line of space below it before the text continues. %
+The equations have to be numbered sequentially, and the number put in parentheses at the right-hand edge of the text. %
+Equations should be punctuated as if they were an ordinary part of the text. %
+Punctuation appears after the equation but before the equation number, e.g.
+%
+\begin{equation}
+c^2 = a^2 + b^2.
+\label{eqn:1}
+\end{equation}
+It is also possible to use some of the math signs with using the \verb!\(! and  \verb!\)! delimiters to write \(c^2 = a^2 + b^2\).
+\newline%
+%
+Referencing in \LaTeX\ is quite straightforward. %
+Once you put a \verb!\label{}! in a special environment, \LaTeX\ will adapt the \verb!\ref{}! to fit the kind of environment. %
+This means that a label in a figure environment will produce "Fig. 1" when calling \verb!\ref{}!.
+
+%
+\section{Literature References}
+References are cited in the text just by square brackets \cite{ref1}. %
+Two or more references at a time may be put in one set of brackets \cite{ref1, ref2}. %
+The references are to be numbered in the order in which they are cited in the text and are to be listed at the end of the contribution under a heading References, see our example below. 
+
+%			Bibliographie
+\begin{thebibliography}{99}
+\bibitem{ref1} 
+J. van der Geer, J.A.J. Hanraads, R.A. Lupton, \textit{The art of writing a scientific article}, J. Sci. Commun. \textbf{163} (2000) 51-59.
+\bibitem{ref2}
+W. Strunk Jr., E.B. White, The Elements of Style, third ed., Macmillan, New York, 1979.
+\bibitem{ref3}
+Information on \url{http://www.weld.labs.gov.cn}
+\end{thebibliography}
+\end{document}
+
+
+\end{document}
